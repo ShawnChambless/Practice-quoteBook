@@ -13,11 +13,14 @@ var app = angular.module('quotes');
          }
          dataService.addData(dataObj);
          $scope.toggleAdd = true;
+         $scope.text = '';
+         $scope.author = '';
          };
 
      $scope.removeQuote = function() {
          dataService.removeData($scope.title);
          $scope.toggleRemove = true;
+         $scope.title = '';
      }
 
      $scope.toggleShowAdd = function() {
