@@ -1,0 +1,24 @@
+doctype html
+html(ng-app="quotes")
+    head
+        title Quote Book
+        link(rel="stylesheet" href="styles/main.css")
+    body(ng-controller="mainCtrl")
+        
+        input(type='text' ng-model="text" placeholder='Quote')    
+        input(type='text' ng-model='author' placeholder='Author')
+        button(ng-click="addQuote()") Add Quote
+        br
+        input(type='text' ng-model='title' placeholder='Remove Quote by Text or Author')
+        
+        button(ng-click="removeQuote()") Remove Quote
+        br
+        input(class='form-control' ng-model='filter.author' placeholder='Filter by Author')
+        .quotes(ng-repeat = 'data in quotes | filter: filter')
+            h2 {{data.text}}
+            h3 {{data.author}}
+
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js")
+        script(src="scripts/app.js")
+        script(src="scripts/controller.js")
+        script(src="scripts/dataService.js")
