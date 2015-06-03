@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-controller="mainCtrl">
-    <input type="text" ng-model="text" placeholder="Quote">
-    <input type="text" ng-model="author" placeholder="Author">
-    <button ng-click="addQuote()">Add Quote</button><br>
-    <input type="text" ng-model="title" placeholder="Remove Quote by Text or Author">
-    <button ng-click="removeQuote()">Remove Quote</button><br>
+    <input type="text" ng-model="text" placeholder="Quote" ng-show="showAdd">
+    <input type="text" ng-model="author" placeholder="Author" ng-show="showAdd">
+    <button ng-click="addQuote(); toggleShowAdd()">Add Quote</button><br>
+    <input type="text" ng-model="title" placeholder="Remove Quote by Text or Author" ng-show="showRemove">
+    <button ng-click="removeQuote(); toggleShowRemove()">Remove Quote</button><br>
     <input ng-model="filter.author" placeholder="Filter by Author" class="form-control">
     <div ng-repeat="data in quotes | filter: filter" class="quotes">
       <h2>{{data.text}}</h2>
